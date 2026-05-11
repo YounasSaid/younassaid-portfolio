@@ -36,7 +36,7 @@ function LangTag({ lang }: { lang: string }) {
 }
 
 export function Timeline() {
-  const [openIndex, setOpenIndex] = useState<number | null>(3)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <Section id="uddannelse">
@@ -61,13 +61,13 @@ export function Timeline() {
               key={sem.number}
               variants={fadeInUp}
               custom={i}
-              className={`relative mb-10 pl-14 md:w-[calc(50%+1px)] md:pl-0 ${
+              className={`relative mb-10 pl-14 md:w-1/2 md:pl-0 ${
                 isEven ? 'md:pr-10' : 'md:ml-auto md:pl-10'
               }`}
             >
               {/* Dot on timeline */}
               <div
-                className={`absolute top-3 left-3.5 size-3.5 rounded-full border-2 border-accent-cyan bg-bg-deep ring-2 ring-accent-cyan/20 md:left-auto ${
+                className={`absolute top-3 left-[13px] size-3.5 rounded-full border-2 border-accent-cyan bg-bg-deep ring-2 ring-accent-cyan/20 md:left-auto ${
                   isEven ? 'md:-right-[7px]' : 'md:-left-[7px]'
                 }`}
               />
