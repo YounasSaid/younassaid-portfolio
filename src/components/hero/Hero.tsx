@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import { Typewriter } from './Typewriter'
 import { GradientButton } from '@/components/ui/GradientButton'
 
@@ -7,7 +8,7 @@ const TITLES = [
   'Builder of things',
 ]
 
-const letterVariants = {
+const letterVariants: Variants = {
   hidden: { opacity: 0, y: 50, rotateX: -90 },
   visible: (i: number) => ({
     opacity: 1,
@@ -21,7 +22,7 @@ const letterVariants = {
   }),
 }
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (delay: number) => ({
     opacity: 1,

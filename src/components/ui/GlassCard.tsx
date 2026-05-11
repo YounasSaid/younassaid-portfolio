@@ -1,15 +1,19 @@
 import { motion } from 'framer-motion'
-import type { ComponentPropsWithoutRef } from 'react'
+import type { ReactNode } from 'react'
 import { fadeInUp } from '@/lib/motion'
 
-type Props = ComponentPropsWithoutRef<typeof motion.div> & {
+type Props = {
+  className?: string
   hover?: boolean
+  custom?: number
+  children: ReactNode
 }
 
-export function GlassCard({ className = '', hover = false, children, ...rest }: Props) {
+export function GlassCard({ className = '', hover = false, custom, children }: Props) {
   return (
     <motion.div
       variants={fadeInUp}
+      custom={custom}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -19,7 +23,6 @@ export function GlassCard({ className = '', hover = false, children, ...rest }: 
           ? 'transition-shadow duration-300 hover:shadow-[0_0_50px_-12px_rgba(139,92,246,0.5),0_0_30px_-8px_rgba(34,211,238,0.3)] hover:border-accent-purple/20'
           : ''
       } ${className}`}
-      {...rest}
     >
       {/* Gradient border glow on hover */}
       {hover && (
