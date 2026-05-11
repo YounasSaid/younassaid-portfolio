@@ -10,6 +10,7 @@ export type Project = {
   github?: string
   demo?: string
   image?: string
+  video?: string
   period: string
   highlights: string[]
 }
@@ -23,6 +24,8 @@ export const projects: Project[] = [
     categories: ['personligt', 'ml'],
     stack: ['Python', 'Claude API', 'PDF Generation'],
     github: 'https://github.com/YounasSaid/AssemAI',
+    image: '/projects/asemai.png',
+    video: '/projects/asemai-demo.mp4',
     period: 'Forår 2026',
     highlights: [
       'Claude Vision AI til billedanalyse',
@@ -37,6 +40,7 @@ export const projects: Project[] = [
     longDesc: 'Komplet webshop og brand-identitet til HI Jewelry, en smykke-startup. Inkluderer design system, produktvisning og responsivt layout.',
     categories: ['personligt', 'web'],
     stack: ['HTML', 'CSS', 'JavaScript', 'Design System'],
+    image: '/projects/hi-jewelry.png',
     period: '2025',
     highlights: [
       'Freelance-projekt for startup',
@@ -52,6 +56,7 @@ export const projects: Project[] = [
     categories: ['skoleprojekt', 'backend', 'ml'],
     stack: ['C#', '.NET', 'C', 'Python', 'SQL', 'Docker', 'IoT Sensorer'],
     github: 'https://github.com/YounasSaid/Sep4',
+    image: '/projects/sep4-drivhus.png',
     period: 'Forår 2025 — 4. semester',
     highlights: [
       'IoT-sensorer → Cloud → ML pipeline',
@@ -68,6 +73,7 @@ export const projects: Project[] = [
     categories: ['skoleprojekt', 'ml'],
     stack: ['Python', 'scikit-learn', 'NumPy', 'Pandas', 'Jupyter'],
     github: 'https://github.com/YounasSaid/MAL1',
+    image: '/projects/mal1-ml-portfolio.png',
     period: 'Forår 2025 — 4. semester',
     highlights: [
       'EV-bilpriser: Regression (R² ≈ 0.87)',
@@ -85,6 +91,7 @@ export const projects: Project[] = [
     categories: ['skoleprojekt', 'web'],
     stack: ['React', 'Vite', 'JavaScript', 'React Router', 'PokeAPI'],
     github: 'https://github.com/YounasSaid/WEB2-Pokedex',
+    image: '/projects/web2-pokedex.png',
     period: 'Forår 2026',
     highlights: [
       'React + React Router SPA',
@@ -126,6 +133,7 @@ export const projects: Project[] = [
     categories: ['skoleprojekt'],
     stack: ['Docker', 'GitHub Actions', 'CI/CD'],
     github: 'https://github.com/YounasSaid/DOC1',
+    image: '/projects/doc1-devops.png',
     period: 'Forår 2025 — 4. semester',
     highlights: ['Docker containers', 'CI/CD pipelines', 'Cloud deployment'],
   },

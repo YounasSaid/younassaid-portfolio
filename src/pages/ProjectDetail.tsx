@@ -44,9 +44,9 @@ export default function ProjectDetail() {
         <p className="mt-2 font-mono text-sm text-text-muted">{project.period}</p>
       </motion.div>
 
-      {/* Image or placeholder */}
+      {/* Hero image */}
       {project.image ? (
-        <motion.div variants={fadeInUp} custom={2} className="mt-8 overflow-hidden rounded-2xl">
+        <motion.div variants={fadeInUp} custom={2} className="mt-8 overflow-hidden rounded-2xl ring-1 ring-white/5">
           <img src={project.image} alt={project.title} className="w-full" />
         </motion.div>
       ) : (
@@ -56,6 +56,27 @@ export default function ProjectDetail() {
           className="mt-8 flex aspect-video max-h-80 items-center justify-center rounded-2xl bg-bg-elevated"
         >
           <span className="font-mono text-lg text-text-muted">Screenshot kommer snart</span>
+        </motion.div>
+      )}
+
+      {/* Demo video */}
+      {project.video && (
+        <motion.div variants={fadeInUp} custom={3} className="mt-8">
+          <h2 className="mb-4 font-mono text-xs tracking-wider text-accent-cyan uppercase">
+            <span className="mr-1.5 inline-block size-1.5 rounded-full bg-accent-cyan" />
+            Demo video
+          </h2>
+          <div className="overflow-hidden rounded-2xl ring-1 ring-white/5 bg-bg-elevated">
+            <video
+              controls
+              preload="metadata"
+              className="w-full"
+              poster={project.image}
+            >
+              <source src={project.video} type="video/mp4" />
+              Din browser understøtter ikke video-afspilning.
+            </video>
+          </div>
         </motion.div>
       )}
 
