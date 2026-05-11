@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { fadeInUp } from '@/lib/motion'
@@ -37,14 +37,63 @@ function LangTag({ lang }: { lang: string }) {
 
 export function Timeline() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [dotPositions, setDotPositions] = useState<number[]>([])
+
+  const updateDots = useCallback(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const containerRect = container.getBoundingClientRect()
+    const positions = cardRefs.current.map((card) => {
+      if (!card) return 0
+      const cardRect = card.getBoundingClientRect()
+      // Center of card relative to container top
+      return cardRect.top - containerRect.top + cardRect.height / 2
+    })
+    setDotPositions(positions)
+  }, [])
+
+  // Update dots on mount, open/close, and resize
+  useEffect(() => {
+    // Small delay to let animations settle
+    const timer = setTimeout(updateDots, 50)
+    return () => clearTimeout(timer)
+  }, [openIndex, updateDots])
+
+  useEffect(() => {
+    // Also update after expand animation finishes
+    const timer = setTimeout(updateDots, 400)
+    return () => clearTimeout(timer)
+  }, [openIndex, updateDots])
+
+  useEffect(() => {
+    window.addEventListener('resize', updateDots)
+    return () => window.removeEventListener('resize', updateDots)
+  }, [updateDots])
 
   return (
     <Section id="uddannelse">
       <SectionHeading label="Uddannelse" title="VIA University — Softwareingeniør" />
 
-      <div className="relative mx-auto max-w-3xl">
-        {/* Vertical line */}
+      <div className="relative mx-auto max-w-3xl" ref={containerRef}>
+        {/* Vertical line — desktop: center, mobile: left side */}
         <div className="absolute top-0 bottom-0 left-5 w-px bg-gradient-to-b from-accent-purple via-accent-cyan to-accent-pink md:left-1/2" />
+
+        {/* Dots — rendered at container level so they're always on the line */}
+        {education.map((_, i) => (
+          <div
+            key={`dot-${i}`}
+            className="absolute left-5 z-10 -translate-x-1/2 -translate-y-1/2 md:left-1/2"
+            style={{
+              top: dotPositions[i] ?? 0,
+              transition: 'top 0.3s ease',
+            }}
+          >
+            <div className="size-4 rounded-full border-2 border-accent-cyan bg-bg-deep shadow-[0_0_8px_rgba(34,211,238,0.3)]" />
+          </div>
+        ))}
 
         {education.map((sem, i) => {
           const isOpen = openIndex === i
@@ -59,19 +108,13 @@ export function Timeline() {
           return (
             <motion.div
               key={sem.number}
+              ref={(el) => { cardRefs.current[i] = el }}
               variants={fadeInUp}
               custom={i}
               className={`relative mb-10 pl-14 md:w-1/2 md:pl-0 ${
                 isEven ? 'md:pr-10' : 'md:ml-auto md:pl-10'
               }`}
             >
-              {/* Dot on timeline */}
-              <div
-                className={`absolute top-3 left-[13px] size-3.5 rounded-full border-2 border-accent-cyan bg-bg-deep ring-2 ring-accent-cyan/20 md:left-auto ${
-                  isEven ? 'md:-right-[7px]' : 'md:-left-[7px]'
-                }`}
-              />
-
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -102,6 +145,7 @@ export function Timeline() {
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
+                    onAnimationComplete={updateDots}
                     className="mt-4 space-y-4 overflow-hidden"
                   >
                     <p className="text-sm text-text-muted">{sem.description}</p>
