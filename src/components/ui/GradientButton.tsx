@@ -13,9 +13,9 @@ export function GradientButton({ href, children, variant = 'primary', className 
 
   const variants = {
     primary:
-      'bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-pink text-white shadow-glow-purple hover:shadow-glow-cyan hover:scale-[1.03]',
+      'relative overflow-hidden bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-pink text-white shadow-[0_0_30px_-8px_rgba(139,92,246,0.6)] hover:shadow-[0_0_50px_-8px_rgba(34,211,238,0.7)] hover:scale-[1.04]',
     ghost:
-      'glass text-text-primary hover:bg-white/[0.06] hover:shadow-glow-purple',
+      'glass text-text-primary hover:bg-white/[0.08] hover:shadow-[0_0_40px_-10px_rgba(139,92,246,0.4)] hover:border-accent-purple/20',
   }
 
   const classes = `${base} ${variants[variant]} ${className}`
@@ -23,8 +23,20 @@ export function GradientButton({ href, children, variant = 'primary', className 
   const inner = (
     <motion.span
       className={classes}
-      whileTap={{ scale: 0.97 }}
+      whileTap={{ scale: 0.96 }}
     >
+      {/* Shimmer overlay for primary buttons */}
+      {variant === 'primary' && (
+        <span
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100"
+          style={{
+            background:
+              'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.15) 50%, transparent 75%)',
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 3s ease-in-out infinite',
+          }}
+        />
+      )}
       {children}
     </motion.span>
   )

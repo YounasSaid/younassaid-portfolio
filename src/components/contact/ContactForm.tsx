@@ -109,8 +109,8 @@ export function ContactForm() {
           </div>
           <div className="glass rounded-2xl p-5">
             <p className="font-mono text-xs text-accent-cyan uppercase">LinkedIn</p>
-            <a href="#" className="mt-1 block text-sm text-text-muted">
-              (tilføj URL senere)
+            <a href="https://www.linkedin.com/in/younas-said-966a6028b/" target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-text-primary hover:text-accent-purple">
+              linkedin.com/in/younas-said
             </a>
           </div>
         </motion.div>

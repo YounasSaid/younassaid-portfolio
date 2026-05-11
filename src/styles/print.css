@@ -17,7 +17,6 @@
 
   nav,
   footer,
-  .custom-cursor,
   #kontakt form,
   [aria-hidden='true'] {
     display: none !important;

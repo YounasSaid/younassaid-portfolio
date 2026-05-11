@@ -44,8 +44,8 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
+        scrolled ? 'glass shadow-[0_4px_30px_-10px_rgba(0,0,0,0.5)] border-b border-white/[0.04]' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">

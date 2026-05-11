@@ -40,7 +40,7 @@ export function Timeline() {
 
   return (
     <Section id="uddannelse">
-      <SectionHeading label="Uddannelse" title="VIA UC — Softwareingeniør" />
+      <SectionHeading label="Uddannelse" title="VIA University — Softwareingeniør" />
 
       <div className="relative mx-auto max-w-3xl">
         {/* Vertical line */}

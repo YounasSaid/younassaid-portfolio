@@ -22,7 +22,7 @@ export type Semester = {
 export const education: Semester[] = [
   {
     number: 1,
-    period: 'Sep 2023 – Jan 2024',
+    period: 'Aug 2024 – Jan 2025',
     title: 'Grundlæggende programmering & webudvikling',
     description:
       'Introduktion til softwareudvikling med objektorienteret Java, grundlæggende webudvikling og matematisk fundament for IT.',
@@ -51,14 +51,6 @@ export const education: Semester[] = [
           'Matematisk fundament til IT: lineær algebra (vektorer, matricer), sandsynlighedsregning, talrepræsentation (binær, hexadecimal) og grundlæggende calculus.',
         languages: [],
       },
-      {
-        code: 'SW-CAO1',
-        name: 'Computerarkitektur og -organisering',
-        ects: 5,
-        description:
-          'Forståelse af CPU-arkitektur, logiske porte, flip-flops, instruktionssæt og assemblerprogrammering til microcontrollere. Boolsk algebra og digitale kredsløb.',
-        languages: ['Assembly'],
-      },
     ],
     project: {
       name: 'SEP1 — Enkeltbrugersystem',
@@ -69,7 +61,7 @@ export const education: Semester[] = [
   },
   {
     number: 2,
-    period: 'Feb 2024 – Jun 2024',
+    period: 'Feb 2025 – Jun 2025',
     title: 'Objektorienteret design, databaser & software engineering',
     description:
       'Avanceret Java-programmering med designmønstre og multithreading, relationelle databaser og professionel softwareudviklingsproces med Scrum og UML.',
@@ -108,10 +100,10 @@ export const education: Semester[] = [
   },
   {
     number: 3,
-    period: 'Sep 2024 – Jan 2025',
-    title: 'Distribuerede systemer, .NET & embedded software',
+    period: 'Aug 2025 – Jan 2026',
+    title: 'Distribuerede systemer, .NET & computerarkitektur',
     description:
-      'Distribuerede og heterogene systemer med Java og C#, embedded C-programmering til mikrocontrollere, og algoritmedesign.',
+      'Distribuerede og heterogene systemer med Java og C#, CPU-arkitektur og assemblerprogrammering, samt algoritmedesign.',
     courses: [
       {
         code: 'SW-DNP1',
@@ -130,12 +122,12 @@ export const education: Semester[] = [
         languages: ['Java', 'C#'],
       },
       {
-        code: 'SW-ESW1',
-        name: 'Embedded Software',
+        code: 'SW-CAO1',
+        name: 'Computerarkitektur og -organisering',
         ects: 5,
         description:
-          'Embedded C-programmering til mikrocontrollere: tasks, queues, semaforer, mutex-synkronisering, memory management og unit-test i C.',
-        languages: ['C'],
+          'Forståelse af CPU-arkitektur, logiske porte, flip-flops, instruktionssæt og assemblerprogrammering til microcontrollere. Boolsk algebra og digitale kredsløb.',
+        languages: ['Assembly'],
       },
       {
         code: 'SW-ADS1',
@@ -155,7 +147,7 @@ export const education: Semester[] = [
   },
   {
     number: 4,
-    period: 'Feb 2025 – Jun 2025',
+    period: 'Feb 2026 – Jun 2026',
     title: 'IoT, Machine Learning, DevOps & moderne webudvikling',
     description:
       'Den fulde IoT-stak: ML-modeller i Python, C# cloud-backend, embedded C til sensorer, React-frontend og CI/CD-pipelines.',
@@ -183,6 +175,14 @@ export const education: Semester[] = [
         description:
           'Moderne JavaScript og React: closures, prototyper, TypeScript, komponenter, state management og både CSR/SSR render-mønstre.',
         languages: ['React', 'TypeScript', 'JavaScript'],
+      },
+      {
+        code: 'SW-ESW1',
+        name: 'Embedded Software',
+        ects: 5,
+        description:
+          'Embedded C-programmering til mikrocontrollere: tasks, queues, semaforer, mutex-synkronisering, memory management og unit-test i C.',
+        languages: ['C'],
       },
     ],
     project: {

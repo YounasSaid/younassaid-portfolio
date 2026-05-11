@@ -1,6 +1,6 @@
 const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/YounasSaid', icon: githubIcon },
-  { label: 'LinkedIn', href: '#', icon: linkedinIcon },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/younas-said-966a6028b/', icon: linkedinIcon },
   { label: 'Email', href: 'mailto:younassaid@hotmail.com', icon: emailIcon },
 ]
 
