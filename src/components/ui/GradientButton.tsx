@@ -46,7 +46,7 @@ export function GradientButton({ href, children, variant = 'primary', className 
   }
 
   return (
-    <button type="button" className="inline-block" {...rest}>
+    <button type={rest.type ?? 'button'} className="inline-block" {...rest}>
       {inner}
     </button>
   )

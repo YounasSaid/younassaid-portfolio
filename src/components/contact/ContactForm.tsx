@@ -65,7 +65,7 @@ export function ContactForm() {
             />
           </div>
 
-          <GradientButton>
+          <GradientButton type="submit">
             Send besked
           </GradientButton>
         </motion.form>
