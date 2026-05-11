@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const NAV_ITEMS = [
   { label: 'Hjem', href: '/' },
@@ -15,6 +15,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -26,17 +27,47 @@ export function Navbar() {
     setMobileOpen(false)
   }, [location])
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('/#')) {
-      const id = href.slice(2)
-      const el = document.getElementById(id)
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' })
-        setMobileOpen(false)
+  const handleNavClick = useCallback(
+    (href: string) => {
+      setMobileOpen(false)
+
+      // "Hjem" or logo — scroll to top if on /, else navigate to /
+      if (href === '/') {
+        if (location.pathname === '/') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+          navigate('/')
+          // Scroll to top after navigation
+          setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50)
+        }
         return
       }
-    }
-    setMobileOpen(false)
+
+      // Section links like /#om, /#skills, etc.
+      if (href.startsWith('/#')) {
+        const id = href.slice(2)
+
+        if (location.pathname === '/') {
+          // Already on home — just scroll
+          const el = document.getElementById(id)
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        } else {
+          // Navigate to home first, then scroll to section
+          navigate('/')
+          setTimeout(() => {
+            const el = document.getElementById(id)
+            if (el) el.scrollIntoView({ behavior: 'smooth' })
+          }, 150)
+        }
+        return
+      }
+    },
+    [location.pathname, navigate],
+  )
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    handleNavClick('/')
   }
 
   return (
@@ -49,15 +80,22 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="font-display text-lg font-bold gradient-text">
+        <a href="/" onClick={handleLogoClick} className="font-display text-lg font-bold gradient-text">
           YS
-        </Link>
+        </a>
 
         {/* Desktop */}
         <ul className="hidden items-center gap-8 md:flex">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
-              {item.href.startsWith('/#') ? (
+              {item.href === '/projekter' ? (
+                <Link
+                  to={item.href}
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  {item.label}
+                </Link>
+              ) : (
                 <button
                   type="button"
                   onClick={() => handleNavClick(item.href)}
@@ -65,13 +103,6 @@ export function Navbar() {
                 >
                   {item.label}
                 </button>
-              ) : (
-                <Link
-                  to={item.href}
-                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
-                >
-                  {item.label}
-                </Link>
               )}
             </li>
           ))}
@@ -111,7 +142,14 @@ export function Navbar() {
             <ul className="flex flex-col gap-4 px-6 py-6">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
-                  {item.href.startsWith('/#') ? (
+                  {item.href === '/projekter' ? (
+                    <Link
+                      to={item.href}
+                      className="text-base text-text-muted transition-colors hover:text-text-primary"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
                     <button
                       type="button"
                       onClick={() => handleNavClick(item.href)}
@@ -119,13 +157,6 @@ export function Navbar() {
                     >
                       {item.label}
                     </button>
-                  ) : (
-                    <Link
-                      to={item.href}
-                      className="text-base text-text-muted transition-colors hover:text-text-primary"
-                    >
-                      {item.label}
-                    </Link>
                   )}
                 </li>
               ))}
