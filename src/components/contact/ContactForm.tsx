@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Section } from '@/components/ui/Section'
@@ -7,35 +6,16 @@ import { GradientButton } from '@/components/ui/GradientButton'
 import { fadeInUp } from '@/lib/motion'
 
 export function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setStatus('sending')
+    const form = e.currentTarget
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
 
-    try {
-      const form = e.currentTarget
-      const data = {
-        name: (form.elements.namedItem('name') as HTMLInputElement).value,
-        email: (form.elements.namedItem('email') as HTMLInputElement).value,
-        message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
-      }
-
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-
-      if (res.ok) {
-        setStatus('sent')
-        form.reset()
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
+    const subject = encodeURIComponent(`Besked fra ${name} via portfolio`)
+    const body = encodeURIComponent(`Fra: ${name} (${email})\n\n${message}`)
+    window.location.href = `mailto:younassaid@hotmail.com?subject=${subject}&body=${body}`
   }
 
   return (
@@ -86,12 +66,8 @@ export function ContactForm() {
           </div>
 
           <GradientButton>
-            {status === 'sending' ? 'Sender...' : status === 'sent' ? 'Sendt ✓' : 'Send besked'}
+            Send besked
           </GradientButton>
-
-          {status === 'error' && (
-            <p className="text-sm text-accent-pink">Noget gik galt. Prøv igen eller send en email direkte.</p>
-          )}
         </motion.form>
 
         <motion.div variants={fadeInUp} custom={1} className="space-y-6">
