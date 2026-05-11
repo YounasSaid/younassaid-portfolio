@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg-deep: #0a0118;
+  --color-bg-elevated: #15082c;
+  --color-glass-stroke: rgba(255, 255, 255, 0.08);
+  --color-glass-fill: rgba(255, 255, 255, 0.04);
+  --color-accent-purple: #8b5cf6;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-pink: #ec4899;
+  --color-text-primary: #f4f1ff;
+  --color-text-muted: #a39fb8;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --shadow-glow-purple: 0 0 40px -10px rgba(139, 92, 246, 0.5);
+  --shadow-glow-cyan: 0 0 40px -10px rgba(34, 211, 238, 0.5);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg-deep);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-feature-settings:
+      'cv11',
+      'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--color-accent-purple);
+    color: white;
+  }
+}
+
+@utility gradient-text {
+  background: linear-gradient(120deg, #8b5cf6 0%, #22d3ee 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@utility glass {
+  background: var(--color-glass-fill);
+  border: 1px solid var(--color-glass-stroke);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
