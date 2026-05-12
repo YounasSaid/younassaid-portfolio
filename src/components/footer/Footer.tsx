@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/YounasSaid', icon: githubIcon },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/younas-said-966a6028b/', icon: linkedinIcon },
@@ -29,11 +31,13 @@ function emailIcon() {
 }
 
 export function Footer() {
+  const { t } = useTranslation()
+
   return (
     <footer className="border-t border-white/5 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between">
         <p className="font-mono text-xs text-text-muted">
-          &copy; {new Date().getFullYear()} Younas Said &middot; Bygget med React + Vite
+          {t('footer.builtWith', { year: new Date().getFullYear() })}
         </p>
 
         <div className="flex gap-4">

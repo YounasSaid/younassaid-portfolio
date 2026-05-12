@@ -1,0 +1,299 @@
+{
+  "nav": {
+    "home": "Hjem",
+    "about": "Om mig",
+    "skills": "Skills",
+    "education": "Uddannelse",
+    "projects": "Projekter",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "badge": "Portfolio · Younas Said",
+    "greeting": "Hej, jeg er",
+    "name": "Younas",
+    "typewriter": ["Softwareingeniørstuderende", "Builder of things"],
+    "tagline": "4. semester på VIA University · Backend, fullstack og AI-drevne projekter",
+    "ctaProjects": "Se mine projekter",
+    "ctaContact": "Kontakt mig",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "label": "Om mig",
+    "title": "Hvem er Younas?",
+    "p1": "Hej, jeg hedder Younas. Jeg læser softwareingeniør på 4. semester på VIA University i Horsens, hvor jeg pt. arbejder på et IoT-baseret smart drivhus med C# backend og machine learning-forudsigelser.",
+    "p2": "Jeg er drevet af projekter der kombinerer kode med noget visuelt eller fysisk — det er derfor jeg både har lavet en AI-baseret samlevejlednings-generator (ASEMAI) og en webshop til en smykke-startup ved siden af studiet.",
+    "focusArrow": "→",
+    "focusIntro": "Lige nu fokuserer jeg på",
+    "focusSep4": "SEP4",
+    "focusAI": "AI-agenter & moderne AI-værktøjer",
+    "focusJob": "at finde en praktikplads",
+    "and": "og"
+  },
+  "skills": {
+    "label": "Teknologier",
+    "title": "Hvad jeg arbejder med",
+    "usedIn": "Brugt i:",
+    "hint": "Hover over en teknologi for at se hvilke projekter den er brugt i.",
+    "categories": {
+      "languages": "Sprog",
+      "frameworks": "Frameworks",
+      "tools": "Værktøjer",
+      "cloud": "Cloud & CI/CD"
+    }
+  },
+  "education": {
+    "label": "Uddannelse",
+    "title": "VIA University — Softwareingeniør",
+    "semester": "Semester",
+    "courses": "Fag",
+    "semesterProject": "Semesterprojekt",
+    "showDetails": "▼ Vis fag og projekt",
+    "hideDetails": "▲ Skjul detaljer",
+    "sem1": {
+      "title": "Grundlæggende programmering & webudvikling",
+      "description": "Introduktion til softwareudvikling med objektorienteret Java, grundlæggende webudvikling og matematisk fundament for IT.",
+      "courses": {
+        "PRO1": {
+          "name": "Programmering 1",
+          "desc": "Grundlæggende objektorienteret programmering i Java med fokus på klasser, nedarvning, UML-modellering og unit-testing."
+        },
+        "WEB1": {
+          "name": "Webudvikling 1",
+          "desc": "Frontend-webudvikling med HTML, CSS og JavaScript. Responsivt layout med flexbox/grid, DOM-manipulation og JSON-håndtering."
+        },
+        "MSE1": {
+          "name": "Matematik for softwareingeniører",
+          "desc": "Matematisk fundament til IT: lineær algebra (vektorer, matricer), sandsynlighedsregning, talrepræsentation (binær, hexadecimal) og grundlæggende calculus."
+        }
+      },
+      "project": {
+        "name": "SEP1 — Enkeltbrugersystem",
+        "desc": "Analyse, design og implementering af et Java-baseret enkeltbrugersystem. Krav indsamlet via use cases, systemet dokumenteret med UML og testet efter testspecifikationer."
+      }
+    },
+    "sem2": {
+      "title": "Objektorienteret design, databaser & software engineering",
+      "description": "Avanceret Java-programmering med designmønstre og multithreading, relationelle databaser og professionel softwareudviklingsproces med Scrum og UML.",
+      "courses": {
+        "PRO2": {
+          "name": "Programmering 2",
+          "desc": "Objektorienteret systemudvikling i Java med designmønstre, multithreading, unit/systemtest og klient/server-kommunikation via sockets."
+        },
+        "SWE1": {
+          "name": "Software Engineering",
+          "desc": "Softwareudviklingsproces med Unified Process (UP) og Scrum. UML-modellering (domænemodel, sekvensdiagrammer, designklassediagrammer), SOLID-principper og testspecifikationer."
+        },
+        "DBS1": {
+          "name": "Database systemer",
+          "desc": "Design og implementering af relationelle databaser: ER-modellering, normalisering til 3NF, DDL/DML i SQL, transaktioner, views og triggers."
+        }
+      },
+      "project": {
+        "name": "SEP2 — Client/Server System",
+        "desc": "Analyse, design og implementering af et Java client/server-system med normaliseret SQL-database. Brugte Scrum + Unified Process, UML og use case testing."
+      }
+    },
+    "sem3": {
+      "title": "Distribuerede systemer, .NET & computerarkitektur",
+      "description": "Distribuerede og heterogene systemer med Java og C#, CPU-arkitektur og assemblerprogrammering, samt algoritmedesign.",
+      "courses": {
+        "DNP1": {
+          "name": ".NET Programmering",
+          "desc": "C# og .NET-platformen med fokus på ASP.NET REST API-udvikling, asynkron programmering, Entity Framework (ORM), autentificering og autorisation."
+        },
+        "PRO3": {
+          "name": "Programmering 3",
+          "desc": "Distribuerede systemarkitekturer: kommunikationsparadigmer (RPC, messaging, REST), middleware, sikkerhed i distribuerede systemer og peer-to-peer."
+        },
+        "CAO1": {
+          "name": "Computerarkitektur og -organisering",
+          "desc": "Forståelse af CPU-arkitektur, logiske porte, flip-flops, instruktionssæt og assemblerprogrammering til microcontrollere. Boolsk algebra og digitale kredsløb."
+        },
+        "ADS1": {
+          "name": "Algoritmer og datastrukturer",
+          "desc": "Algoritmedesign og analyse: tidskompleksitet (Big-O), lineære og ikke-lineære datastrukturer (grafer, træer), abstrakte datatyper og sorteringsalgoritmer."
+        }
+      },
+      "project": {
+        "name": "SEP3 — Heterogene Systemer",
+        "desc": "Distribueret system med heterogene komponenter: sikkerhedsanalyse, multiple netværksprotokoller og versionsstyring. Java-frontend kommunikerer med C# backend."
+      }
+    },
+    "sem4": {
+      "title": "IoT, Machine Learning, DevOps & moderne webudvikling",
+      "description": "Den fulde IoT-stak: ML-modeller i Python, C# cloud-backend, embedded C til sensorer, React-frontend og CI/CD-pipelines.",
+      "courses": {
+        "MAL1": {
+          "name": "Machine Learning og AI",
+          "desc": "Komplet ML-workflow fra data til model: klassifikation, regression, clustering og PCA. Brugte scikit-learn, pandas og neural networks (MLPClassifier)."
+        },
+        "DOC1": {
+          "name": "DevOps & Cloud",
+          "desc": "DevOps-tankegang med Docker, GitHub Actions CI/CD-pipelines, cloud-deployment og automatisering af softwareleveringspipelinen."
+        },
+        "WEB2": {
+          "name": "Webudvikling 2",
+          "desc": "Moderne JavaScript og React: closures, prototyper, TypeScript, komponenter, state management og både CSR/SSR render-mønstre."
+        },
+        "ESW1": {
+          "name": "Embedded Software",
+          "desc": "Embedded C-programmering til mikrocontrollere: tasks, queues, semaforer, mutex-synkronisering, memory management og unit-test i C."
+        }
+      },
+      "project": {
+        "name": "SEP4 — Smart Drivhus (IoT)",
+        "desc": "Storskala IoT-løsning med embedded C til sensorer, C# cloud-backend, ML-forudsigelse af vækstrate, React-webinterface og GitHub Actions CI/CD-pipelines."
+      }
+    }
+  },
+  "featuredProjects": {
+    "label": "Projekter",
+    "title": "Udvalgte projekter",
+    "viewAll": "Se alle projekter"
+  },
+  "projectsList": {
+    "label": "Alle projekter",
+    "title": "Hvad jeg har bygget",
+    "all": "Alle",
+    "moreOnGithub": "Flere projekter på",
+    "githubLink": "GitHub →"
+  },
+  "projectDetail": {
+    "backLink": "← Alle projekter",
+    "description": "Beskrivelse",
+    "highlights": "Hvad jeg lærte",
+    "techStack": "Tech stack",
+    "github": "GitHub →",
+    "liveDemo": "Live demo →",
+    "notFound": "Projektet blev ikke fundet.",
+    "backToProjects": "← Tilbage til projekter",
+    "videoFallback": "Din browser understøtter ikke video-afspilning.",
+    "screenshotSoon": "Screenshot kommer snart"
+  },
+  "projectCategories": {
+    "ml": "ML/AI",
+    "web": "Web",
+    "backend": "Backend",
+    "skoleprojekt": "Skoleprojekt",
+    "personligt": "Personligt"
+  },
+  "projects": {
+    "asemai": {
+      "title": "ASEMAI-Pro",
+      "shortDesc": "AI-drevet samlevejlednings-generator — analyserer tekniske tegninger med Claude Vision AI og genererer professionelle trin-for-trin samlevejledninger som PDF.",
+      "longDesc": "ASEMAI bruger Claude Vision AI til at analysere tekniske tegninger og generere professionelle samlevejledninger. Brugeren uploader en tegning, og AI'en producerer en detaljeret PDF med trin-for-trin instruktioner.",
+      "period": "Forår 2026",
+      "highlights": [
+        "Claude Vision AI til billedanalyse",
+        "Automatisk PDF-generering",
+        "MVP-udvikling fra idé til produkt"
+      ]
+    },
+    "hi-jewelry": {
+      "title": "HI Jewelry",
+      "shortDesc": "Hjemmeside og design system til en startup-smykkebutik.",
+      "longDesc": "Komplet webshop og brand-identitet til HI Jewelry, en smykke-startup. Inkluderer design system, produktvisning og responsivt layout.",
+      "period": "2025",
+      "highlights": [
+        "Freelance-projekt for startup",
+        "Design system fra bunden",
+        "Responsivt og visuelt brand-identitet"
+      ]
+    },
+    "sep4-drivhus": {
+      "title": "SEP4 — Smart Drivhus",
+      "shortDesc": "Storskala IoT-projekt med sensor-dataindsamling, C# backend, ML-forudsigelse af vækstrate og web-interface.",
+      "longDesc": "End-to-end IoT-løsning for et smart drivhus. Sensorer indsamler temperatur, fugtighed og lysniveauer. Data sendes til en C# backend der kører machine learning-modeller til at forudsige planters vækstrate og automatisk styre vanding.",
+      "period": "Forår 2025 — 4. semester",
+      "highlights": [
+        "IoT-sensorer → Cloud → ML pipeline",
+        "C# REST API med .NET",
+        "ML-modeller til vækstrate-forudsigelse",
+        "CI/CD med GitHub Actions"
+      ]
+    },
+    "mal1-ml-portfolio": {
+      "title": "Machine Learning Portfolio",
+      "shortDesc": "5 ML-afleveringer: regression, klassifikation, neural networks, clustering og PCA.",
+      "longDesc": "Samling af 5 machine learning-projekter fra MAL1-faget. Dækker supervised og unsupervised learning, fra lineær regression til neurale netværk.",
+      "period": "Forår 2025 — 4. semester",
+      "highlights": [
+        "EV-bilpriser: Regression (R² ≈ 0.87)",
+        "Kandidattest: Random Forest (94% accuracy)",
+        "Exoplaneter: SVM-klassifikation",
+        "Sentiment Analysis: Neural network (88%)",
+        "Clustering & PCA på politiske data"
+      ]
+    },
+    "web2-pokedex": {
+      "title": "Pokédex",
+      "shortDesc": "Pokédex web-app bygget med Vite + React + React Router. Bruger PokeAPI.",
+      "longDesc": "Interaktiv Pokédex-applikation der henter data fra PokeAPI. Bygget med React og React Router for at demonstrere SPA-routing og API-integration.",
+      "period": "Forår 2026",
+      "highlights": [
+        "React + React Router SPA",
+        "PokeAPI-integration",
+        "Søgning og filtrering"
+      ]
+    },
+    "sep1": {
+      "title": "Semester 1 Projekt",
+      "shortDesc": "Grundlæggende softwareudviklingsprojekt i Java.",
+      "longDesc": "Første semesterprojekt med fokus på grundlæggende Java-programmering og teamsamarbejde.",
+      "period": "Efterår 2023 — 1. semester",
+      "highlights": [
+        "Java grundprojekt",
+        "Teamsamarbejde"
+      ]
+    },
+    "sep3": {
+      "title": "Semester 3 Projekt",
+      "shortDesc": "Distribueret system med fokus på heterogene systemer og sikkerhed.",
+      "longDesc": "Projekt med fokus på distribuerede og heterogene systemer, kommunikationsprotokoller og sikkerhed.",
+      "period": "Efterår 2024 — 3. semester",
+      "highlights": [
+        "Distribueret arkitektur",
+        "Blazor frontend",
+        "REST API integration"
+      ]
+    },
+    "doc1-devops": {
+      "title": "DOC1 — DevOps & Cloud",
+      "shortDesc": "Afleveringer og øvelser i DevOps, CI/CD og cloud-infrastruktur.",
+      "longDesc": "Kursusarbejde i DevOps og cloud computing med fokus på Docker, GitHub Actions og cloud-deployment.",
+      "period": "Forår 2025 — 4. semester",
+      "highlights": [
+        "Docker containers",
+        "CI/CD pipelines",
+        "Cloud deployment"
+      ]
+    },
+    "dnp": {
+      "title": "DNP — Distribueret Programmering",
+      "shortDesc": "Kursusopgave i distribueret og netværksbaseret programmering i C#.",
+      "longDesc": "Opgaveprojekt i distribueret og netværksbaseret programmering med C# og .NET.",
+      "period": "Efterår 2024 — 3. semester",
+      "highlights": [
+        "Netværksprogrammering",
+        "C# distribuerede systemer"
+      ]
+    }
+  },
+  "contact": {
+    "label": "Kontakt",
+    "title": "Skriv til mig",
+    "name": "Navn",
+    "email": "Email",
+    "message": "Besked",
+    "send": "Send besked",
+    "mailSubject": "Besked fra {{name}} via portfolio",
+    "mailBody": "Fra: {{name}} ({{email}})\n\n{{message}}",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefon",
+    "githubLabel": "GitHub",
+    "linkedinLabel": "LinkedIn"
+  },
+  "footer": {
+    "builtWith": "© {{year}} Younas Said · Bygget med React + Vite"
+  }
+}

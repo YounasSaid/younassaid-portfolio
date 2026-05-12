@@ -1,0 +1,299 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "skills": "Skills",
+    "education": "Education",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Portfolio · Younas Said",
+    "greeting": "Hi, I'm",
+    "name": "Younas",
+    "typewriter": ["Software Engineering Student", "Builder of things"],
+    "tagline": "4th semester at VIA University · Backend, fullstack & AI-driven projects",
+    "ctaProjects": "View my projects",
+    "ctaContact": "Contact me",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "label": "About me",
+    "title": "Who is Younas?",
+    "p1": "Hi, I'm Younas. I'm studying Software Engineering in my 4th semester at VIA University in Horsens, where I'm currently working on an IoT-based smart greenhouse with a C# backend and machine learning predictions.",
+    "p2": "I'm driven by projects that combine code with something visual or physical — that's why I've built both an AI-powered assembly guide generator (ASEMAI) and a webshop for a jewelry startup alongside my studies.",
+    "focusArrow": "→",
+    "focusIntro": "Right now I'm focusing on",
+    "focusSep4": "SEP4",
+    "focusAI": "AI agents & modern AI tools",
+    "focusJob": "finding an internship",
+    "and": "and"
+  },
+  "skills": {
+    "label": "Technologies",
+    "title": "What I work with",
+    "usedIn": "Used in:",
+    "hint": "Hover over a technology to see which projects it's used in.",
+    "categories": {
+      "languages": "Languages",
+      "frameworks": "Frameworks",
+      "tools": "Tools",
+      "cloud": "Cloud & CI/CD"
+    }
+  },
+  "education": {
+    "label": "Education",
+    "title": "VIA University — Software Engineering",
+    "semester": "Semester",
+    "courses": "Courses",
+    "semesterProject": "Semester project",
+    "showDetails": "▼ Show courses & project",
+    "hideDetails": "▲ Hide details",
+    "sem1": {
+      "title": "Fundamentals of programming & web development",
+      "description": "Introduction to software development with object-oriented Java, basic web development, and mathematical foundations for IT.",
+      "courses": {
+        "PRO1": {
+          "name": "Programming 1",
+          "desc": "Fundamental object-oriented programming in Java with focus on classes, inheritance, UML modeling, and unit testing."
+        },
+        "WEB1": {
+          "name": "Web Development 1",
+          "desc": "Frontend web development with HTML, CSS, and JavaScript. Responsive layout with flexbox/grid, DOM manipulation, and JSON handling."
+        },
+        "MSE1": {
+          "name": "Mathematics for Software Engineers",
+          "desc": "Mathematical foundation for IT: linear algebra (vectors, matrices), probability, number representation (binary, hexadecimal), and basic calculus."
+        }
+      },
+      "project": {
+        "name": "SEP1 — Single-user System",
+        "desc": "Analysis, design, and implementation of a Java-based single-user system. Requirements gathered via use cases, documented with UML, and tested against test specifications."
+      }
+    },
+    "sem2": {
+      "title": "Object-oriented design, databases & software engineering",
+      "description": "Advanced Java programming with design patterns and multithreading, relational databases, and professional software development processes with Scrum and UML.",
+      "courses": {
+        "PRO2": {
+          "name": "Programming 2",
+          "desc": "Object-oriented system development in Java with design patterns, multithreading, unit/system testing, and client/server communication via sockets."
+        },
+        "SWE1": {
+          "name": "Software Engineering",
+          "desc": "Software development process with Unified Process (UP) and Scrum. UML modeling (domain model, sequence diagrams, design class diagrams), SOLID principles, and test specifications."
+        },
+        "DBS1": {
+          "name": "Database Systems",
+          "desc": "Design and implementation of relational databases: ER modeling, normalization to 3NF, DDL/DML in SQL, transactions, views, and triggers."
+        }
+      },
+      "project": {
+        "name": "SEP2 — Client/Server System",
+        "desc": "Analysis, design, and implementation of a Java client/server system with a normalized SQL database. Used Scrum + Unified Process, UML, and use case testing."
+      }
+    },
+    "sem3": {
+      "title": "Distributed systems, .NET & computer architecture",
+      "description": "Distributed and heterogeneous systems with Java and C#, CPU architecture and assembly programming, and algorithm design.",
+      "courses": {
+        "DNP1": {
+          "name": ".NET Programming",
+          "desc": "C# and the .NET platform with focus on ASP.NET REST API development, asynchronous programming, Entity Framework (ORM), authentication, and authorization."
+        },
+        "PRO3": {
+          "name": "Programming 3",
+          "desc": "Distributed system architectures: communication paradigms (RPC, messaging, REST), middleware, security in distributed systems, and peer-to-peer."
+        },
+        "CAO1": {
+          "name": "Computer Architecture & Organization",
+          "desc": "Understanding CPU architecture, logic gates, flip-flops, instruction sets, and assembly programming for microcontrollers. Boolean algebra and digital circuits."
+        },
+        "ADS1": {
+          "name": "Algorithms & Data Structures",
+          "desc": "Algorithm design and analysis: time complexity (Big-O), linear and non-linear data structures (graphs, trees), abstract data types, and sorting algorithms."
+        }
+      },
+      "project": {
+        "name": "SEP3 — Heterogeneous Systems",
+        "desc": "Distributed system with heterogeneous components: security analysis, multiple network protocols, and version control. Java frontend communicates with C# backend."
+      }
+    },
+    "sem4": {
+      "title": "IoT, Machine Learning, DevOps & modern web development",
+      "description": "The full IoT stack: ML models in Python, C# cloud backend, embedded C for sensors, React frontend, and CI/CD pipelines.",
+      "courses": {
+        "MAL1": {
+          "name": "Machine Learning & AI",
+          "desc": "Complete ML workflow from data to model: classification, regression, clustering, and PCA. Used scikit-learn, pandas, and neural networks (MLPClassifier)."
+        },
+        "DOC1": {
+          "name": "DevOps & Cloud",
+          "desc": "DevOps mindset with Docker, GitHub Actions CI/CD pipelines, cloud deployment, and automation of the software delivery pipeline."
+        },
+        "WEB2": {
+          "name": "Web Development 2",
+          "desc": "Modern JavaScript and React: closures, prototypes, TypeScript, components, state management, and both CSR/SSR render patterns."
+        },
+        "ESW1": {
+          "name": "Embedded Software",
+          "desc": "Embedded C programming for microcontrollers: tasks, queues, semaphores, mutex synchronization, memory management, and unit testing in C."
+        }
+      },
+      "project": {
+        "name": "SEP4 — Smart Greenhouse (IoT)",
+        "desc": "Large-scale IoT solution with embedded C for sensors, C# cloud backend, ML growth rate prediction, React web interface, and GitHub Actions CI/CD pipelines."
+      }
+    }
+  },
+  "featuredProjects": {
+    "label": "Projects",
+    "title": "Featured projects",
+    "viewAll": "View all projects"
+  },
+  "projectsList": {
+    "label": "All projects",
+    "title": "What I've built",
+    "all": "All",
+    "moreOnGithub": "More projects on",
+    "githubLink": "GitHub →"
+  },
+  "projectDetail": {
+    "backLink": "← All projects",
+    "description": "Description",
+    "highlights": "What I learned",
+    "techStack": "Tech stack",
+    "github": "GitHub →",
+    "liveDemo": "Live demo →",
+    "notFound": "Project not found.",
+    "backToProjects": "← Back to projects",
+    "videoFallback": "Your browser does not support video playback.",
+    "screenshotSoon": "Screenshot coming soon"
+  },
+  "projectCategories": {
+    "ml": "ML/AI",
+    "web": "Web",
+    "backend": "Backend",
+    "skoleprojekt": "School project",
+    "personligt": "Personal"
+  },
+  "projects": {
+    "asemai": {
+      "title": "ASEMAI-Pro",
+      "shortDesc": "AI-powered assembly guide generator — analyzes technical drawings with Claude Vision AI and generates professional step-by-step assembly guides as PDF.",
+      "longDesc": "ASEMAI uses Claude Vision AI to analyze technical drawings and generate professional assembly guides. The user uploads a drawing, and the AI produces a detailed PDF with step-by-step instructions.",
+      "period": "Spring 2026",
+      "highlights": [
+        "Claude Vision AI for image analysis",
+        "Automatic PDF generation",
+        "MVP development from idea to product"
+      ]
+    },
+    "hi-jewelry": {
+      "title": "HI Jewelry",
+      "shortDesc": "Website and design system for a jewelry startup.",
+      "longDesc": "Complete webshop and brand identity for HI Jewelry, a jewelry startup. Includes design system, product display, and responsive layout.",
+      "period": "2025",
+      "highlights": [
+        "Freelance project for startup",
+        "Design system from scratch",
+        "Responsive and visual brand identity"
+      ]
+    },
+    "sep4-drivhus": {
+      "title": "SEP4 — Smart Greenhouse",
+      "shortDesc": "Large-scale IoT project with sensor data collection, C# backend, ML growth rate prediction, and web interface.",
+      "longDesc": "End-to-end IoT solution for a smart greenhouse. Sensors collect temperature, humidity, and light levels. Data is sent to a C# backend running machine learning models to predict plant growth rate and automatically control watering.",
+      "period": "Spring 2025 — 4th semester",
+      "highlights": [
+        "IoT sensors → Cloud → ML pipeline",
+        "C# REST API with .NET",
+        "ML models for growth rate prediction",
+        "CI/CD with GitHub Actions"
+      ]
+    },
+    "mal1-ml-portfolio": {
+      "title": "Machine Learning Portfolio",
+      "shortDesc": "5 ML assignments: regression, classification, neural networks, clustering, and PCA.",
+      "longDesc": "Collection of 5 machine learning projects from the MAL1 course. Covers supervised and unsupervised learning, from linear regression to neural networks.",
+      "period": "Spring 2025 — 4th semester",
+      "highlights": [
+        "EV car prices: Regression (R² ≈ 0.87)",
+        "Candidate test: Random Forest (94% accuracy)",
+        "Exoplanets: SVM classification",
+        "Sentiment Analysis: Neural network (88%)",
+        "Clustering & PCA on political data"
+      ]
+    },
+    "web2-pokedex": {
+      "title": "Pokédex",
+      "shortDesc": "Pokédex web app built with Vite + React + React Router. Uses PokeAPI.",
+      "longDesc": "Interactive Pokédex application that fetches data from PokeAPI. Built with React and React Router to demonstrate SPA routing and API integration.",
+      "period": "Spring 2026",
+      "highlights": [
+        "React + React Router SPA",
+        "PokeAPI integration",
+        "Search and filtering"
+      ]
+    },
+    "sep1": {
+      "title": "Semester 1 Project",
+      "shortDesc": "Fundamental software development project in Java.",
+      "longDesc": "First semester project focusing on fundamental Java programming and team collaboration.",
+      "period": "Fall 2023 — 1st semester",
+      "highlights": [
+        "Java foundation project",
+        "Team collaboration"
+      ]
+    },
+    "sep3": {
+      "title": "Semester 3 Project",
+      "shortDesc": "Distributed system focusing on heterogeneous systems and security.",
+      "longDesc": "Project focusing on distributed and heterogeneous systems, communication protocols, and security.",
+      "period": "Fall 2024 — 3rd semester",
+      "highlights": [
+        "Distributed architecture",
+        "Blazor frontend",
+        "REST API integration"
+      ]
+    },
+    "doc1-devops": {
+      "title": "DOC1 — DevOps & Cloud",
+      "shortDesc": "Assignments and exercises in DevOps, CI/CD, and cloud infrastructure.",
+      "longDesc": "Coursework in DevOps and cloud computing with focus on Docker, GitHub Actions, and cloud deployment.",
+      "period": "Spring 2025 — 4th semester",
+      "highlights": [
+        "Docker containers",
+        "CI/CD pipelines",
+        "Cloud deployment"
+      ]
+    },
+    "dnp": {
+      "title": "DNP — Distributed Programming",
+      "shortDesc": "Course assignment in distributed and network-based programming in C#.",
+      "longDesc": "Assignment project in distributed and network-based programming with C# and .NET.",
+      "period": "Fall 2024 — 3rd semester",
+      "highlights": [
+        "Network programming",
+        "C# distributed systems"
+      ]
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Get in touch",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "mailSubject": "Message from {{name}} via portfolio",
+    "mailBody": "From: {{name}} ({{email}})\n\n{{message}}",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "githubLabel": "GitHub",
+    "linkedinLabel": "LinkedIn"
+  },
+  "footer": {
+    "builtWith": "© {{year}} Younas Said · Built with React + Vite"
+  }
+}

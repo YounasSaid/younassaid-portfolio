@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { GlassCard } from '@/components/ui/GlassCard'
@@ -10,11 +11,12 @@ import { projects } from '@/data/projects'
 const FEATURED_SLUGS = ['asemai', 'sep4-drivhus', 'hi-jewelry']
 
 export function FeaturedProjects() {
+  const { t } = useTranslation()
   const featured = FEATURED_SLUGS.map((s) => projects.find((p) => p.slug === s)!).filter(Boolean)
 
   return (
     <Section id="projekter-preview">
-      <SectionHeading label="Projekter" title="Udvalgte projekter" />
+      <SectionHeading label={t('featuredProjects.label')} title={t('featuredProjects.title')} />
 
       <div className="grid gap-6 md:grid-cols-3">
         {featured.map((project, i) => (
@@ -22,7 +24,7 @@ export function FeaturedProjects() {
             <GlassCard hover custom={i} className="h-full p-6">
               {project.image ? (
                 <div className="mb-4 aspect-video overflow-hidden rounded-lg bg-bg-elevated">
-                  <img src={project.image} alt={project.title} className="size-full object-cover" loading="lazy" />
+                  <img src={project.image} alt={t(`projects.${project.slug}.title`)} className="size-full object-cover" loading="lazy" />
                 </div>
               ) : (
                 <div className="mb-4 flex aspect-video items-center justify-center rounded-lg bg-bg-elevated">
@@ -40,8 +42,8 @@ export function FeaturedProjects() {
                 ))}
               </div>
 
-              <h3 className="text-lg font-semibold">{project.title}</h3>
-              <p className="mt-2 text-sm text-text-muted line-clamp-2">{project.shortDesc}</p>
+              <h3 className="text-lg font-semibold">{t(`projects.${project.slug}.title`)}</h3>
+              <p className="mt-2 text-sm text-text-muted line-clamp-2">{t(`projects.${project.slug}.shortDesc`)}</p>
             </GlassCard>
           </Link>
         ))}
@@ -49,7 +51,7 @@ export function FeaturedProjects() {
 
       <motion.div variants={fadeInUp} className="mt-10 text-center">
         <GradientButton href="/projekter">
-          Se alle projekter
+          {t('featuredProjects.viewAll')}
           <span aria-hidden>→</span>
         </GradientButton>
       </motion.div>

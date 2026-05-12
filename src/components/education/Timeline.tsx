@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { fadeInUp } from '@/lib/motion'
@@ -36,6 +37,7 @@ function LangTag({ lang }: { lang: string }) {
 }
 
 export function Timeline() {
+  const { t } = useTranslation()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -49,21 +51,17 @@ export function Timeline() {
     const positions = cardRefs.current.map((card) => {
       if (!card) return 0
       const cardRect = card.getBoundingClientRect()
-      // Center of card relative to container top
       return cardRect.top - containerRect.top + cardRect.height / 2
     })
     setDotPositions(positions)
   }, [])
 
-  // Update dots on mount, open/close, and resize
   useEffect(() => {
-    // Small delay to let animations settle
     const timer = setTimeout(updateDots, 50)
     return () => clearTimeout(timer)
   }, [openIndex, updateDots])
 
   useEffect(() => {
-    // Also update after expand animation finishes
     const timer = setTimeout(updateDots, 400)
     return () => clearTimeout(timer)
   }, [openIndex, updateDots])
@@ -75,13 +73,13 @@ export function Timeline() {
 
   return (
     <Section id="uddannelse">
-      <SectionHeading label="Uddannelse" title="VIA University — Softwareingeniør" />
+      <SectionHeading label={t('education.label')} title={t('education.title')} />
 
       <div className="relative mx-auto max-w-3xl" ref={containerRef}>
-        {/* Vertical line — desktop: center, mobile: left side */}
+        {/* Vertical line */}
         <div className="absolute top-0 bottom-0 left-5 w-px bg-gradient-to-b from-accent-purple via-accent-cyan to-accent-pink md:left-1/2" />
 
-        {/* Dots — rendered at container level so they're always on the line */}
+        {/* Dots */}
         {education.map((_, i) => (
           <div
             key={`dot-${i}`}
@@ -98,6 +96,7 @@ export function Timeline() {
         {education.map((sem, i) => {
           const isOpen = openIndex === i
           const isEven = i % 2 === 0
+          const semKey = `sem${sem.number}`
           const allLangs = [
             ...new Set([
               ...sem.courses.flatMap((c) => c.languages),
@@ -124,9 +123,11 @@ export function Timeline() {
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div>
                     <span className="font-mono text-xs text-accent-cyan uppercase">
-                      Semester {sem.number}
+                      {t('education.semester')} {sem.number}
                     </span>
-                    <h3 className="mt-0.5 text-base font-semibold leading-tight">{sem.title}</h3>
+                    <h3 className="mt-0.5 text-base font-semibold leading-tight">
+                      {t(`education.${semKey}.title`)}
+                    </h3>
                   </div>
                   <span className="shrink-0 font-mono text-xs text-text-muted">{sem.period}</span>
                 </div>
@@ -148,49 +149,54 @@ export function Timeline() {
                     onAnimationComplete={updateDots}
                     className="mt-4 space-y-4 overflow-hidden"
                   >
-                    <p className="text-sm text-text-muted">{sem.description}</p>
+                    <p className="text-sm text-text-muted">
+                      {t(`education.${semKey}.description`)}
+                    </p>
 
                     {/* Courses */}
                     <div className="space-y-3">
                       <p className="font-mono text-xs tracking-wider text-accent-purple uppercase">
-                        Fag
+                        {t('education.courses')}
                       </p>
-                      {sem.courses.map((course) => (
-                        <div key={course.code} className="rounded-lg bg-white/[0.02] p-3">
-                          <div className="flex flex-wrap items-baseline justify-between gap-1">
-                            <span className="text-sm font-medium text-text-primary">
-                              {course.name}
-                            </span>
-                            <span className="font-mono text-[10px] text-text-muted">
-                              {course.code} · {course.ects} ECTS
-                            </span>
-                          </div>
-                          <p className="mt-1 text-xs leading-relaxed text-text-muted">
-                            {course.description}
-                          </p>
-                          {course.languages.length > 0 && (
-                            <div className="mt-2 flex flex-wrap gap-1">
-                              {course.languages.map((l) => (
-                                <LangTag key={l} lang={l} />
-                              ))}
+                      {sem.courses.map((course) => {
+                        const courseKey = course.code.replace('SW-', '')
+                        return (
+                          <div key={course.code} className="rounded-lg bg-white/[0.02] p-3">
+                            <div className="flex flex-wrap items-baseline justify-between gap-1">
+                              <span className="text-sm font-medium text-text-primary">
+                                {t(`education.${semKey}.courses.${courseKey}.name`)}
+                              </span>
+                              <span className="font-mono text-[10px] text-text-muted">
+                                {course.code} · {course.ects} ECTS
+                              </span>
                             </div>
-                          )}
-                        </div>
-                      ))}
+                            <p className="mt-1 text-xs leading-relaxed text-text-muted">
+                              {t(`education.${semKey}.courses.${courseKey}.desc`)}
+                            </p>
+                            {course.languages.length > 0 && (
+                              <div className="mt-2 flex flex-wrap gap-1">
+                                {course.languages.map((l) => (
+                                  <LangTag key={l} lang={l} />
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
                     </div>
 
                     {/* Semester project */}
                     {sem.project && (
                       <div>
                         <p className="font-mono text-xs tracking-wider text-accent-cyan uppercase">
-                          Semesterprojekt
+                          {t('education.semesterProject')}
                         </p>
                         <div className="mt-2 rounded-lg border border-accent-cyan/20 bg-accent-cyan/[0.03] p-3">
                           <p className="text-sm font-semibold text-text-primary">
-                            {sem.project.name}
+                            {t(`education.${semKey}.project.name`)}
                           </p>
                           <p className="mt-1 text-xs leading-relaxed text-text-muted">
-                            {sem.project.description}
+                            {t(`education.${semKey}.project.desc`)}
                           </p>
                           <div className="mt-2 flex flex-wrap gap-1">
                             {sem.project.languages.map((l) => (
@@ -205,7 +211,7 @@ export function Timeline() {
 
                 {/* Expand/collapse indicator */}
                 <div className="mt-3 flex items-center gap-1 text-xs text-text-muted">
-                  <span>{isOpen ? '▲ Skjul detaljer' : '▼ Vis fag og projekt'}</span>
+                  <span>{isOpen ? t('education.hideDetails') : t('education.showDetails')}</span>
                 </div>
               </button>
             </motion.div>

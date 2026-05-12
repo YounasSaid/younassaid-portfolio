@@ -1,17 +1,20 @@
 import { useState, useEffect, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { LanguageToggle } from './LanguageToggle'
 
-const NAV_ITEMS = [
-  { label: 'Hjem', href: '/' },
-  { label: 'Om mig', href: '/#om' },
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Uddannelse', href: '/#uddannelse' },
-  { label: 'Projekter', href: '/projekter' },
-  { label: 'Kontakt', href: '/#kontakt' },
+const NAV_KEYS = [
+  { key: 'home', href: '/' },
+  { key: 'about', href: '/#om' },
+  { key: 'skills', href: '/#skills' },
+  { key: 'education', href: '/#uddannelse' },
+  { key: 'projects', href: '/projekter' },
+  { key: 'contact', href: '/#kontakt' },
 ]
 
 export function Navbar() {
+  const { t } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
@@ -31,28 +34,23 @@ export function Navbar() {
     (href: string) => {
       setMobileOpen(false)
 
-      // "Hjem" or logo — scroll to top if on /, else navigate to /
       if (href === '/') {
         if (location.pathname === '/') {
           window.scrollTo({ top: 0, behavior: 'smooth' })
         } else {
           navigate('/')
-          // Scroll to top after navigation
           setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50)
         }
         return
       }
 
-      // Section links like /#om, /#skills, etc.
       if (href.startsWith('/#')) {
         const id = href.slice(2)
 
         if (location.pathname === '/') {
-          // Already on home — just scroll
           const el = document.getElementById(id)
           if (el) el.scrollIntoView({ behavior: 'smooth' })
         } else {
-          // Navigate to home first, then scroll to section
           navigate('/')
           setTimeout(() => {
             const el = document.getElementById(id)
@@ -86,14 +84,14 @@ export function Navbar() {
 
         {/* Desktop */}
         <ul className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map((item) => (
+          {NAV_KEYS.map((item) => (
             <li key={item.href}>
               {item.href === '/projekter' ? (
                 <Link
                   to={item.href}
                   className="text-sm text-text-muted transition-colors hover:text-text-primary"
                 >
-                  {item.label}
+                  {t(`nav.${item.key}`)}
                 </Link>
               ) : (
                 <button
@@ -101,33 +99,39 @@ export function Navbar() {
                   onClick={() => handleNavClick(item.href)}
                   className="text-sm text-text-muted transition-colors hover:text-text-primary"
                 >
-                  {item.label}
+                  {t(`nav.${item.key}`)}
                 </button>
               )}
             </li>
           ))}
+          <li>
+            <LanguageToggle />
+          </li>
         </ul>
 
         {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
-          aria-label={mobileOpen ? 'Luk menu' : 'Åbn menu'}
-        >
-          <motion.span
-            animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-text-primary"
-          />
-          <motion.span
-            animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block h-0.5 w-6 bg-text-primary"
-          />
-          <motion.span
-            animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-text-primary"
-          />
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageToggle />
+          <button
+            type="button"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="flex flex-col gap-1.5"
+            aria-label={mobileOpen ? 'Luk menu' : 'Åbn menu'}
+          >
+            <motion.span
+              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-6 bg-text-primary"
+            />
+            <motion.span
+              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="block h-0.5 w-6 bg-text-primary"
+            />
+            <motion.span
+              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-6 bg-text-primary"
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -140,14 +144,14 @@ export function Navbar() {
             className="glass overflow-hidden md:hidden"
           >
             <ul className="flex flex-col gap-4 px-6 py-6">
-              {NAV_ITEMS.map((item) => (
+              {NAV_KEYS.map((item) => (
                 <li key={item.href}>
                   {item.href === '/projekter' ? (
                     <Link
                       to={item.href}
                       className="text-base text-text-muted transition-colors hover:text-text-primary"
                     >
-                      {item.label}
+                      {t(`nav.${item.key}`)}
                     </Link>
                   ) : (
                     <button
@@ -155,7 +159,7 @@ export function Navbar() {
                       onClick={() => handleNavClick(item.href)}
                       className="text-base text-text-muted transition-colors hover:text-text-primary"
                     >
-                      {item.label}
+                      {t(`nav.${item.key}`)}
                     </button>
                   )}
                 </li>

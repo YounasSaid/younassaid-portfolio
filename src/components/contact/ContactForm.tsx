@@ -1,11 +1,14 @@
 import type { FormEvent } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { fadeInUp } from '@/lib/motion'
 
 export function ContactForm() {
+  const { t } = useTranslation()
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
@@ -13,14 +16,14 @@ export function ContactForm() {
     const email = (form.elements.namedItem('email') as HTMLInputElement).value
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
 
-    const subject = encodeURIComponent(`Besked fra ${name} via portfolio`)
-    const body = encodeURIComponent(`Fra: ${name} (${email})\n\n${message}`)
+    const subject = encodeURIComponent(t('contact.mailSubject', { name }))
+    const body = encodeURIComponent(t('contact.mailBody', { name, email, message }))
     window.location.href = `mailto:younassaid@hotmail.com?subject=${subject}&body=${body}`
   }
 
   return (
     <Section id="kontakt">
-      <SectionHeading label="Kontakt" title="Skriv til mig" />
+      <SectionHeading label={t('contact.label')} title={t('contact.title')} />
 
       <div className="mx-auto grid max-w-4xl gap-10 md:grid-cols-[1fr_300px]">
         <motion.form
@@ -30,7 +33,7 @@ export function ContactForm() {
         >
           <div>
             <label htmlFor="name" className="mb-1 block font-mono text-xs text-text-muted uppercase">
-              Navn
+              {t('contact.name')}
             </label>
             <input
               id="name"
@@ -42,7 +45,7 @@ export function ContactForm() {
           </div>
           <div>
             <label htmlFor="email" className="mb-1 block font-mono text-xs text-text-muted uppercase">
-              Email
+              {t('contact.email')}
             </label>
             <input
               id="email"
@@ -54,7 +57,7 @@ export function ContactForm() {
           </div>
           <div>
             <label htmlFor="message" className="mb-1 block font-mono text-xs text-text-muted uppercase">
-              Besked
+              {t('contact.message')}
             </label>
             <textarea
               id="message"
@@ -66,25 +69,31 @@ export function ContactForm() {
           </div>
 
           <GradientButton type="submit">
-            Send besked
+            {t('contact.send')}
           </GradientButton>
         </motion.form>
 
         <motion.div variants={fadeInUp} custom={1} className="space-y-6">
           <div className="glass rounded-2xl p-5">
-            <p className="font-mono text-xs text-accent-cyan uppercase">Email</p>
+            <p className="font-mono text-xs text-accent-cyan uppercase">{t('contact.emailLabel')}</p>
             <a href="mailto:younassaid@hotmail.com" className="mt-1 block text-sm text-text-primary hover:text-accent-purple">
               younassaid@hotmail.com
             </a>
           </div>
           <div className="glass rounded-2xl p-5">
-            <p className="font-mono text-xs text-accent-cyan uppercase">GitHub</p>
+            <p className="font-mono text-xs text-accent-cyan uppercase">{t('contact.phoneLabel')}</p>
+            <a href="tel:+4525758122" className="mt-1 block text-sm text-text-primary hover:text-accent-purple">
+              +45 25 75 81 22
+            </a>
+          </div>
+          <div className="glass rounded-2xl p-5">
+            <p className="font-mono text-xs text-accent-cyan uppercase">{t('contact.githubLabel')}</p>
             <a href="https://github.com/YounasSaid" target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-text-primary hover:text-accent-purple">
               github.com/YounasSaid
             </a>
           </div>
           <div className="glass rounded-2xl p-5">
-            <p className="font-mono text-xs text-accent-cyan uppercase">LinkedIn</p>
+            <p className="font-mono text-xs text-accent-cyan uppercase">{t('contact.linkedinLabel')}</p>
             <a href="https://www.linkedin.com/in/younas-said-966a6028b/" target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-text-primary hover:text-accent-purple">
               linkedin.com/in/younas-said
             </a>

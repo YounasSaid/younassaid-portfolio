@@ -1,12 +1,8 @@
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Typewriter } from './Typewriter'
 import { GradientButton } from '@/components/ui/GradientButton'
-
-const TITLES = [
-  'Softwareingeniørstuderende',
-  'Builder of things',
-]
 
 const letterVariants: Variants = {
   hidden: { opacity: 0, y: 50, rotateX: -90 },
@@ -32,13 +28,14 @@ const fadeUp: Variants = {
 }
 
 function AnimatedHeadline() {
-  const line1 = 'Hej, jeg er'
-  const name = 'Younas'
+  const { t } = useTranslation()
+  const greeting = t('hero.greeting')
+  const name = t('hero.name')
 
   return (
     <h1 className="mt-6 text-5xl font-bold leading-tight sm:text-6xl md:text-7xl lg:text-8xl">
       <span className="inline-block overflow-hidden">
-        {line1.split('').map((char, i) => (
+        {greeting.split('').map((char, i) => (
           <motion.span
             key={`${char}-${i}`}
             custom={i}
@@ -48,7 +45,7 @@ function AnimatedHeadline() {
             className="inline-block"
             style={{ whiteSpace: char === ' ' ? 'pre' : undefined }}
           >
-            {char === ' ' ? ' ' : char}
+            {char === ' ' ? ' ' : char}
           </motion.span>
         ))}
       </span>{' '}
@@ -56,7 +53,7 @@ function AnimatedHeadline() {
         {name.split('').map((char, i) => (
           <motion.span
             key={`name-${char}-${i}`}
-            custom={line1.length + i}
+            custom={greeting.length + i}
             variants={letterVariants}
             initial="hidden"
             animate="visible"
@@ -71,6 +68,9 @@ function AnimatedHeadline() {
 }
 
 export function Hero() {
+  const { t } = useTranslation()
+  const typewriterWords = t('hero.typewriter', { returnObjects: true }) as string[]
+
   return (
     <section className="relative flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center px-6 text-center">
       {/* Glowing orb behind headline */}
@@ -91,7 +91,7 @@ export function Hero() {
         className="relative font-mono text-sm tracking-wider text-accent-cyan uppercase"
       >
         <span className="mr-2 inline-block size-2 animate-pulse rounded-full bg-accent-cyan" />
-        Portfolio &middot; Younas Said
+        {t('hero.badge')}
       </motion.p>
 
       <AnimatedHeadline />
@@ -103,7 +103,7 @@ export function Hero() {
         animate="visible"
         className="mt-4 h-12 text-xl text-text-muted sm:text-2xl md:text-3xl"
       >
-        <Typewriter words={TITLES} />
+        <Typewriter words={typewriterWords} />
       </motion.div>
 
       <motion.p
@@ -113,7 +113,7 @@ export function Hero() {
         animate="visible"
         className="relative mt-6 max-w-lg text-text-muted"
       >
-        4. semester på VIA University &middot; Backend, fullstack og AI-drevne projekter
+        {t('hero.tagline')}
       </motion.p>
 
       <motion.div
@@ -124,14 +124,14 @@ export function Hero() {
         className="mt-10 flex flex-wrap justify-center gap-4"
       >
         <GradientButton href="/projekter">
-          Se mine projekter
+          {t('hero.ctaProjects')}
           <span aria-hidden>→</span>
         </GradientButton>
         <GradientButton
           variant="ghost"
           onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          Kontakt mig
+          {t('hero.ctaContact')}
         </GradientButton>
       </motion.div>
 
@@ -148,7 +148,7 @@ export function Hero() {
           className="flex flex-col items-center gap-2"
         >
           <span className="font-mono text-[10px] tracking-widest text-text-muted/50 uppercase">
-            Scroll
+            {t('hero.scroll')}
           </span>
           <div className="h-8 w-px bg-gradient-to-b from-accent-purple/50 to-transparent" />
         </motion.div>

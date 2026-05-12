@@ -1,12 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { fadeInUp } from '@/lib/motion'
-import { skills, categoryLabels } from '@/data/skills'
+import { skills } from '@/data/skills'
 import type { Skill } from '@/data/skills'
 
 function SkillTag({ skill }: { skill: Skill }) {
+  const { t } = useTranslation()
   const [showTooltip, setShowTooltip] = useState(false)
 
   return (
@@ -30,7 +32,7 @@ function SkillTag({ skill }: { skill: Skill }) {
             className="absolute bottom-full left-1/2 z-50 mb-2 w-max max-w-xs -translate-x-1/2 rounded-lg bg-bg-elevated px-3 py-2 text-xs shadow-lg ring-1 ring-white/10"
           >
             <p className="text-text-muted">
-              <span className="text-accent-cyan">Brugt i:</span>{' '}
+              <span className="text-accent-cyan">{t('skills.usedIn')}</span>{' '}
               {skill.usedIn.join(', ')}
             </p>
             <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-bg-elevated" />
@@ -42,11 +44,12 @@ function SkillTag({ skill }: { skill: Skill }) {
 }
 
 export function SkillsGrid() {
-  const categories = Object.keys(categoryLabels) as Skill['category'][]
+  const { t } = useTranslation()
+  const categories: Skill['category'][] = ['languages', 'frameworks', 'tools', 'cloud']
 
   return (
     <Section id="skills">
-      <SectionHeading label="Teknologier" title="Hvad jeg arbejder med" />
+      <SectionHeading label={t('skills.label')} title={t('skills.title')} />
 
       <div className="grid gap-6 sm:grid-cols-2">
         {categories.map((cat, catIndex) => {
@@ -62,7 +65,7 @@ export function SkillsGrid() {
             >
               <h3 className="mb-4 font-mono text-xs tracking-wider text-accent-purple uppercase">
                 <span className="mr-1.5 inline-block size-1.5 rounded-full bg-accent-purple" />
-                {categoryLabels[cat]}
+                {t(`skills.categories.${cat}`)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {catSkills.map((skill) => (
@@ -78,7 +81,7 @@ export function SkillsGrid() {
         variants={fadeInUp}
         className="mt-8 text-center text-sm text-text-muted"
       >
-        Hover over en teknologi for at se hvilke projekter den er brugt i.
+        {t('skills.hint')}
       </motion.p>
     </Section>
   )
